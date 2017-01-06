@@ -1,0 +1,159 @@
+﻿<Window x:Class="aGame.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:aGame"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="768" Width="1024"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+         WindowStartupLocation="CenterScreen">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="500"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+
+            <Grid Grid.Row="0" Grid.Column="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0"  Content="Messages"/>
+                <TextBox Grid.Row="1" x:Name="EventBox"/>
+
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                
+                
+            </Grid>
+
+
+
+            <Grid Grid.Row="0" Grid.Column="0" Background="Aqua"/>
+            <Grid Grid.Row="2" Grid.Column="0" Background="Crimson"/>
+
+
+
+            <Grid Grid.Row="0" Grid.Column="1">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Content="Quests"/>
+                <ComboBox Name="ScreenQuests" Grid.Row="1" Margin="0,0,0,175" ItemsSource="{Binding Path=CurrentPlayer.CurrentQuests}" DisplayMemberPath="Name" SelectedValuePath="Name"
+                SelectedValue="{Binding Path=Quest}" SelectedItem="{Binding Path=selectedItem, Mode=TwoWay}"/>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="2">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Content="Locations"/>
+                <ComboBox Name="ScreenLocations" Grid.Row="1" Margin="0,0,0,175" ItemsSource="{Binding Path=CurrentLocation.CurrentDirections}" DisplayMemberPath="Name" SelectedValuePath="Name" SelectedValue="{Binding Path= Location}" SelectedItem="{Binding Path=selectedItem, Mode=TwoWay}"/>
+
+                
+                
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Content="Description"/>
+                <TextBlock Grid.Row="1" Name="DescriptionText" Text="{Binding Path=selectedItem.Description, Mode=OneWay}" Width="250" TextWrapping="Wrap"/>
+
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="1">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Content="Monsters"/>
+                <ComboBox Name="ScreenMonsters" Grid.Row="1" Margin="0,0,0,175" ItemsSource="{Binding Path=CurrentLocation.LocationMonsters}" DisplayMemberPath="Name" SelectedValuePath="Name" SelectedValue="{Binding Path= Monster}" SelectedItem="{Binding Path=selectedItem, Mode=TwoWay}"/>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="2">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="2" Content="Places/NPCs"/>
+                <ComboBox Name="Interatables"  Grid.Row="1" Margin="0,0,0,175"/>
+
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Content="Name:"/>
+                <Label Grid.Row="0" Grid.Column="1" Content="{Binding CurrentPlayer.Name}"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="CurrentHP:"/>
+                <Label Grid.Row="1" Grid.Column="1" Content="{Binding CurrentPlayer.CurrentHP}"/>
+                <Label Grid.Row="2" Grid.Column="0" Content="MaxHP:"/>
+                <Label Grid.Row="2" Grid.Column="1" Content="{Binding CurrentPlayer.MaxHP}"/>
+                <Label Grid.Row="3" Grid.Column="0" Content="Experience:"/>
+                <Label Grid.Row="3" Grid.Column="1" Content="{Binding CurrentPlayer.Experience}"/>
+                <Label Grid.Row="4" Grid.Column="0" Content="Gold:"/>
+                <Label Grid.Row="4" Grid.Column="1" Content="{Binding CurrentPlayer.Gold}"/>
+                <Label Grid.Row="4" Grid.Column="0" Content="Class:" Margin="0,32,0,10" Grid.RowSpan="2"/>
+                <Label Grid.Row="5" Grid.Column="1" Content="{Binding CurrentPlayer.PlayerClass}"/>
+
+            </Grid>
+        </Grid>
+
+        <Label Grid.Row="1" Content="Controls"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="40,68,0,0" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+        <Button x:Name="button4" Content="Button" HorizontalAlignment="Left" Margin="40,115,0,0" VerticalAlignment="Top" Width="75" Grid.Row="1"/>
+        <Button x:Name="ActionButton" Content="{Binding Path=selectedItem.ActionString, Mode=OneWay}" HorizontalAlignment="Left" Margin="881,35,0,0" VerticalAlignment="Top" Width="125" Height="55" Grid.Row="1" Click="ActionButton_Clicked"/>
+        <Button x:Name="BoxClearButton" Content="Clear Boxes" HorizontalAlignment="Left" Margin="3,182,0,0" VerticalAlignment="Top" Width="106" Grid.Row="1" Height="52" Click="CLearButtonClick"/>
+
+
+    </Grid>
+</Window>

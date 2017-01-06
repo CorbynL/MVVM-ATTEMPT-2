@@ -1,0 +1,40 @@
+﻿<Window x:Class="aGame.StartingMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:aGame"
+        mc:Ignorable="d"
+        Title="StartingMenu" Height="768" Width="1024"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Width="300" HorizontalAlignment="Left">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0" Content="Name:" Height="50" Margin="0,0,0,251"/>
+            <TextBox Grid.Column="1" Grid.Row="0" Name="NameChoiceTxt" Margin="0,0,0,251"/>
+
+            <Label Grid.Column="0" Content="Class" Height="50" Margin="0,123,0,128"/>
+            <ComboBox Height="50" Margin="0,123,0,128" Name="ClassSelection" Grid.Column="1"/>
+        </Grid>
+
+        <Button x:Name="Start" Content="Start" HorizontalAlignment="Left" Margin="305,10,0,0" VerticalAlignment="Top" Width="140" Height="65"/>
+
+    </Grid>
+</Window>
